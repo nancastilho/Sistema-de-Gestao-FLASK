@@ -44,5 +44,6 @@ Insira um gif ou um link de alguma demonstração
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Desktop - 1](https://user-images.githubusercontent.com/110828077/185951974-984bb5a7-c790-449c-af92-7ecaec02d6a2.png)
+
 
