@@ -29,17 +29,17 @@ C:\Users\renan\Desktop\LPIII\Python\WEB>venv\Scripts\activate
 
 ```
     
-## Demonstração
-
-Insira um gif ou um link de alguma demonstração
-
-
 ## Funcionalidades
 
 - Responsividade
 - Busca de Tickets
 - inserção de imagens
 - Controle interno
+
+
+## Demonstração
+
+Insira um gif ou um link de alguma demonstração
 
 
 ## Screenshots
