@@ -37,11 +37,6 @@ C:\Users\renan\Desktop\LPIII\Python\WEB>venv\Scripts\activate
 - Controle interno
 
 
-## Demonstração
-
-Insira um gif ou um link de alguma demonstração
-
-
 ## Screenshots
 
 ![Desktop - 1](https://user-images.githubusercontent.com/110828077/185951974-984bb5a7-c790-449c-af92-7ecaec02d6a2.png)
