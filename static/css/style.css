@@ -1,19 +1,136 @@
-h1 {
-    border: 2px #eee solid;
-    color: brown;
+.pendente {
+    text-transform: capitalize;
+    color: #fff;
+    background-color: #dc3545;
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
     text-align: center;
-    padding: 10px;
-}
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  }
 
+  .desenvolvendo {
+    text-transform: capitalize;
+    color: #212529;
+    background-color: #ffc107;
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 
+  }
 
-@media only screen and (max-device-width: 480px) {
-    
-    #entrar{
-        margin-top: 15px !important;
-    }
+  .concluido {
+    text-transform: capitalize;
+    color: #fff;
+    background-color: #28a745;
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 
-    #pesquisa{
-        margin-top: 5px !important;
-    }
- }
+  }
+
+  #imagens img {
+    width: 200px;
+  }
+
+  .search-box input {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: normal;
+  }
+
+  .manual {
+    text-align: center;
+  }
+
+  .manual img {
+    border: 1px solid #000;
+  }
+
+  .manual h2,
+  p {
+    text-align: justify;
+  }
+
+  #novoticket {
+    width: 1000px;
+  }
+
+  #edite {
+    width: 900px;
+  }
+
+  .cards {
+    padding: 20px;
+  }
+
+  .square {
+    border-bottom: solid 1px black;
+    border-right: solid 1px black;
+    border-left: solid 1px black;
+    text-align: center;
+    width: 300px;
+    padding-bottom: 10px;
+    border-radius: 10%;
+  }
+
+  .pedidos {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .basePendente {
+    background-color: #dc35469f;
+    width: 350px;
+    border-radius: 10%;
+    border: solid 1px black;
+
+  }
+
+  .basePendente h1 {
+    border-bottom: #000 solid 1px;
+  }
+
+  .baseDesenvolvendo {
+    background-color: #fff70f62;
+    width: 350px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 10%;
+    border: solid 1px black;
+  }
+
+  .baseDesenvolvendo h1 {
+    border-bottom: #000 solid 1px;
+  }
+
+  .baseFinalizado {
+    background-color: #35dc59a3;
+    width: 350px;
+    border-radius: 10%;
+    border: solid 1px black;
+  }
+
+  .baseFinalizado h1 {
+    border-bottom: #000 solid 1px;
+  }

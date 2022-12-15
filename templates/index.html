@@ -2,8 +2,9 @@
 
 
 {% block content %}
-<h1 id="titulo">{% block title %} Gestor de Manutenção de Hardware {% endblock %}</h1>
+<h1 id="titulo">{% block title %} Gestor de Tickets {% endblock %}</h1>
 {% for post in posts %}
+<div>
 <a href="{{ url_for('post', post_id=post['id']) }}">
     <h2>{{post['id']}}- {{ post['title'] }} </h2>
 </a>

@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h1 id="titulo">{% block title %} Gestor de Tickets {% endblock %}</h1>
+<div class="pedidos">
+    <div class="basePendente">
+        <h1 id="titulo" style="text-align:center">Pendentes</h1>
+        {% for post in posts %}
+        {% if post['Status'] == 'pendente' %}
+        <div class="cards">
+            <div class="square">
+                <a href="{{ url_for('post', post_id=post['id']) }}">
+                    <h2>{{post['id']}}- {{ post['title'] }} </h2>
+                </a>
+                <label for="">Departamento: <span class="badge badge-primary">{{post['departamentos']}}</span></label>
+                <br>
+                <label>Status: <span class="{{post['Status']}}">{{post['Status']}}</span></label>
+                <br>
+                <span class="badge badge-info">{{ post['created'] }}</span>
+                <a href="{{ url_for('edit', id=post['id']) }}">
+                    <span class="badge badge-secondary">Editar</span>
+                </a>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="baseDesenvolvendo">
+        <h1 id="titulo" style="text-align:center">Desenvolvendo</h1>
+        {% for post in posts %}
+        {% if post['Status'] == 'desenvolvendo' %}
+        <div class="cards">
+            <div class="square">
+                <a href="{{ url_for('post', post_id=post['id']) }}">
+                    <h2>{{post['id']}}- {{ post['title'] }} </h2>
+                </a>
+                <label for="">Departamento: <span class="badge badge-primary">{{post['departamentos']}}</span></label>
+                <br>
+                <label>Status: <span class="{{post['Status']}}">{{post['Status']}}</span></label>
+                <br>
+                <span class="badge badge-info">{{ post['created'] }}</span>
+                <a href="{{ url_for('edit', id=post['id']) }}">
+                    <span class="badge badge-secondary">Editar</span>
+                </a>
+            </div>
+        </div>
+        {%endif%}
+        {% endfor %}
+    </div>
+
+    <div class="baseFinalizado">
+        <h1 id="titulo" style="text-align:center">Concluido</h1>
+        {% for post in posts %}
+        {% if post['Status'] == 'concluido' %}
+        <div class="cards">
+            <div class="square">
+                <a href="{{ url_for('post', post_id=post['id']) }}">
+                    <h2>{{post['id']}}- {{ post['title'] }} </h2>
+                </a>
+                <label for="">Departamento: <span class="badge badge-primary">{{post['departamentos']}}</span></label>
+                <br>
+                <label>Status: <span class="{{post['Status']}}">{{post['Status']}}</span></label>
+                <br>
+                <span class="badge badge-info">{{ post['created'] }}</span>
+                <a href="{{ url_for('edit', id=post['id']) }}">
+                    <span class="badge badge-secondary">Editar</span>
+                </a>
+            </div>
+        </div>
+        {%endif%}
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

@@ -53,8 +53,12 @@ cur.execute("INSERT INTO posts (title, content, conclusao, departamentos, status
              "suporte", "concluido", "teste.jpg")
             )
 
-cur.execute("INSERT INTO contas (email, senha) VALUES (?, ?)",
-            ('renan@renan.com', '1234')
+cur.execute("INSERT INTO contas (nome, email, senha) VALUES (?, ?, ?)",
+            ('Renan', 'renan@renan.com', '1234')
+            )
+
+cur.execute("INSERT INTO contas (nome, email, senha) VALUES (?, ?, ?)",
+            ('Patrick', 'patrick@patrick.com', '4321')
             )
 
 connection.commit()
