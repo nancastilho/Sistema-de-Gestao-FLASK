@@ -3,15 +3,16 @@
 {% block content %}
 <h1>{% block title %} Edite "{{ post['title'] }}" {% endblock %}</h1>
 
+
+
 <form method="post">
     <div class="form-group">
         <label for="title">Titulo</label>
-        <input type="text" name="title" placeholder="Post title"
-               class="form-control"
-               value="{{ request.form['title'] or post['title'] }}">
+        <input type="text" name="title" placeholder="Post title" class="form-control"
+            value="{{ request.form['title'] or post['title'] }}">
         </input>
     </div>
-    
+
     <div class="form-group">
         <label for="conclusao">Conclusão</label>
         <input class="form-control" type="text" name="conclusao" placeholder="dd/mm/yyyy" onkeyup="
@@ -20,8 +21,7 @@
             this.value = v + '/';
         } else if (v.match(/^\d{2}\/\d{2}$/) !== null) {
             this.value = v + '/';
-        }" maxlength="10"
-        value="{{ request.form['title'] or post['conclusao'] }}">
+        }" maxlength="10" value="{{ request.form['title'] or post['conclusao'] }}">
         </input>
     </div>
 
@@ -37,21 +37,20 @@
     <div class="form-group">
         <label for="departamentos">Departamentos</label><br>
         <select name="departamentos" value="{{ request.form['departamentos'] }}" class="form-control">
-            <option value="Suporte">Suporte</option>
-            <option value="Desenvolvimento">Desenvolvimento</option>
-            <option value="Administrativo">Administrativo</option>
-            <option value="Comercial">Comercial</option>
+            {% for setor in setores %}
+            <option value="{{ setor['setor'] }}">{{ setor['setor'] }}</option>
+            {% endfor %}
         </select>
     </div>
     <div class="form-group">
         <label for="anexos">imagens</label>
-        <input type="file" name="anexos" class="form-control" value="{{ request.form['anexos'] }}">
+        <input type="file" name="anexos" class="form-control" value="{{ request.form['anexos'] }} ">
     </div>
 
     <div class="form-group">
         <label for="content">Conteúdo</label>
         <textarea name="content" placeholder="Post content"
-                  class="form-control">{{ request.form['content'] or post['content'] }}</textarea>
+            class="form-control">{{ request.form['content'] or post['content'] }}</textarea>
     </div>
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Salvar</button>
@@ -59,9 +58,7 @@
 </form>
 <hr>
 <form action="{{ url_for('delete', id=post['id']) }}" method="POST">
-    <input type="submit" value="Deletar"
-            class="btn btn-danger btn-sm"
-            onclick="return confirm('Você tem certeza que deseja deletar seu Ticket?')">
+    <input type="submit" value="Deletar" class="btn btn-danger btn-sm"
+        onclick="return confirm('Você tem certeza que deseja deletar seu Ticket?')">
 </form>
 {% endblock %}
-

@@ -3,10 +3,8 @@ from flask import Flask, render_template, request, url_for, flash, redirect
 from werkzeug.exceptions import abort
 
 
-
 app = Flask(__name__, static_url_path='/static')
 app.config['SECRET_KEY'] = 'your secret key'
-
 
 
 def get_db_connection():
@@ -24,20 +22,32 @@ def get_post(post_id):
         abort(404)
     return post
 
-    
-def get_idLog(contas_id):
+
+def get_setor(setor_id):
     conn = get_db_connection()
-    contas = conn.execute('SELECT * FROM contas WHERE id = ?',
-                        (contas_id,)).fetchone()
+    setor = conn.execute('SELECT * FROM setores WHERE id = ?',
+                         (setor_id,)).fetchone()
     conn.close()
+    if setor is None:
+        abort(404)
+    return setor
+
+
+# def get_idLog(contas_id):
+#     conn = get_db_connection()
+#     contas = conn.execute('SELECT * FROM contas WHERE id = ?',
+#                           (contas_id,)).fetchone()
+#     conn.close()
+
 
 @app.route('/', methods=('GET', 'POST'))
-def login():       
+def login():
     if request.method == 'POST':
         email = request.form['email']
         senha = request.form['senha']
         conn = get_db_connection()
-        user = conn.execute("SELECT * FROM contas WHERE email=? and senha=?", (email, senha)).fetchall()
+        user = conn.execute(
+            "SELECT * FROM contas WHERE email=? and senha=?", (email, senha)).fetchall()
         conn.close()
         if not user:
             flash('E-mail ou senha nao encontrado')
@@ -45,6 +55,7 @@ def login():
         if user:
             return redirect(url_for('index'))
     return render_template('login.html')
+
 
 @app.route('/cadastro', methods=('GET', 'POST'))
 def cadastro():
@@ -77,9 +88,25 @@ def index():
 
     conn = get_db_connection()
     posts = conn.execute('SELECT * FROM posts').fetchall()
-    logado = conn.execute('SELECT * FROM posts').fetchall()
     conn.close()
     return render_template('indexnew.html', posts=posts)
+
+
+@app.route('/teste', methods=('GET', 'POST'))
+def setor():
+    conn = get_db_connection()
+    setores = conn.execute('SELECT * FROM setores').fetchall()
+    conn.close()
+    return render_template('edit.html', setores=setores)
+
+
+@app.route('/graph', methods=('GET', 'POST'))
+def graph():
+    conn = get_db_connection()
+    posts = conn.execute(
+        'SELECT departamentos, COUNT(*) AS total FROM posts GROUP BY departamentos').fetchall()
+    conn.close()
+    return render_template('graph.html', posts=posts)
 
 
 @app.route('/<int:post_id>')
@@ -92,8 +119,29 @@ def post(post_id):
 def manual():
     return render_template('manual.html')
 
+
+@app.route('/inseredep', methods=('GET', 'POST'))
+def inseredep():
+    if request.method == 'POST':
+        setor = request.form['insereDep']
+        vf = 'v'
+        print(setor)
+        if not setor:
+            flash('É necessário ter um título!')
+        else:
+            conn = get_db_connection()
+            conn.execute('INSERT INTO setores (setor, vf) VALUES (?, ?)',
+                         (setor, vf))
+            conn.commit()
+            conn.close()
+            return redirect(url_for('create'))
+
+
 @app.route('/create', methods=('GET', 'POST'))
 def create():
+    conn = get_db_connection()
+    setores = conn.execute('SELECT * FROM setores').fetchall()
+    conn.close()
     if request.method == 'POST':
         title = request.form['title']
         content = request.form['content']
@@ -112,12 +160,15 @@ def create():
             conn.close()
             return redirect(url_for('index'))
 
-    return render_template('create.html')
+    return render_template('create.html', setores=setores)
 
 
 @app.route('/<int:id>/edit', methods=('GET', 'POST'))
 def edit(id):
     post = get_post(id)
+    conn = get_db_connection()
+    setores = conn.execute('SELECT * FROM setores').fetchall()
+    conn.close()
 
     if request.method == 'POST':
         title = request.form['title']
@@ -138,7 +189,7 @@ def edit(id):
             conn.close()
             return redirect(url_for('index'))
 
-    return render_template('edit.html', post=post)
+    return render_template('edit.html', post=post, setores=setores)
 
 
 @app.route('/<int:id>/delete', methods=('POST',))

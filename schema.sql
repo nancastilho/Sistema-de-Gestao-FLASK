@@ -18,4 +18,13 @@ CREATE TABLE contas (
     nome TEXT NOT NULL,
     email TEXT NOT NULL UNIQUE,
     senha TEXT NOT NULL,
+    departamento TEXT NOT NULL
 );
+
+CREATE TABLE setores (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    setor TEXT NOT NULL,
+    vf TEXT NOT NULL
+);
+

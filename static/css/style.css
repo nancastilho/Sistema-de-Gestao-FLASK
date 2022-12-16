@@ -102,7 +102,6 @@
   .basePendente {
     background-color: #dc35469f;
     width: 350px;
-    border-radius: 10%;
     border: solid 1px black;
 
   }
@@ -116,7 +115,6 @@
     width: 350px;
     margin-left: 10px;
     margin-right: 10px;
-    border-radius: 10%;
     border: solid 1px black;
   }
 
@@ -127,10 +125,12 @@
   .baseFinalizado {
     background-color: #35dc59a3;
     width: 350px;
-    border-radius: 10%;
     border: solid 1px black;
   }
 
   .baseFinalizado h1 {
     border-bottom: #000 solid 1px;
   }
+
+ 
+
