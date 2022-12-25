@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 
-
 {% block content %}
 <h1 id="titulo">{% block title %} Gestor de Tickets {% endblock %}</h1>
 <div class="pedidos">
@@ -17,7 +16,7 @@
                 <br>
                 <label>Status: <span class="{{post['Status']}}">{{post['Status']}}</span></label>
                 <br>
-                <span class="badge badge-info">{{ post['created'] }}</span>
+                <span class="badge badge-info">{{ post['conclusao'] }}</span>
                 <a href="{{ url_for('edit', id=post['id']) }}">
                     <span class="badge badge-secondary">Editar</span>
                 </a>
@@ -40,7 +39,7 @@
                 <br>
                 <label>Status: <span class="{{post['Status']}}">{{post['Status']}}</span></label>
                 <br>
-                <span class="badge badge-info">{{ post['created'] }}</span>
+                <span class="badge badge-info">{{ post['conclusao'] }}</span>
                 <a href="{{ url_for('edit', id=post['id']) }}">
                     <span class="badge badge-secondary">Editar</span>
                 </a>
@@ -63,7 +62,7 @@
                 <br>
                 <label>Status: <span class="{{post['Status']}}">{{post['Status']}}</span></label>
                 <br>
-                <span class="badge badge-info">{{ post['created'] }}</span>
+                <span class="badge badge-info">{{ post['conclusao'] }}</span>
                 <a href="{{ url_for('edit', id=post['id']) }}">
                     <span class="badge badge-secondary">Editar</span>
                 </a>

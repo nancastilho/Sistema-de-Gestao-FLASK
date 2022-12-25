@@ -23,7 +23,8 @@
 
     <div class="form-group">
         <label for="status">Status</label><br>
-        <select name="status" value="{{ request.form['status'] }}" class="form-control">
+        <select name="status" value="{{ request.form['status'] }}" class="form-control" required>
+            <option value="" disabled selected> Selecione o Status</option>
             <option value="pendente">Pendente</option>
             <option value="desenvolvendo">Em Andamento</option>
             <option value="concluido">Concluido</option>
@@ -33,7 +34,8 @@
     <div class="form-group">
         <label for="departamentos">Departamentos</label><br>
         <div class="d-flex">
-            <select name="departamentos" value="{{ request.form['departamentos'] }}" class="form-control">
+            <select name="departamentos" value="{{ request.form['departamentos'] }}" class="form-control" required>
+                <option value="" disabled selected> Selecione um departamento</option>
                 {% for setor in setores %}
                 <option value="{{ setor['setor'] }}">{{ setor['setor'] }}</option>
                 {% endfor %}
@@ -69,7 +71,7 @@
             <form action="{{ url_for('inseredep') }}" method="post">
                 <div class="modal-body text-center">
                     <input type="text" name="insereDep" placeholder="Novo departamento" class="form-control"
-                        value="{{ request.form['insereDep'] }}"></input>
+                        value="{{ request.form['insereDep'] }}" required>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>

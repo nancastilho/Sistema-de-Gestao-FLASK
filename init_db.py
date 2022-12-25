@@ -17,12 +17,7 @@ cur.execute("INSERT INTO posts (title, content, conclusao, departamentos, status
             ('teste', 'teste', "21/25/4241",
              "suporte", "pendente", "teste.jpg")
             )
-
-cur.execute("INSERT INTO posts (title, content, conclusao, departamentos, status, anexos) VALUES (?, ?, ?, ?, ?, ?)",
-            ('teste', 'teste', "21/25/4241",
-             "desenvolvimento", "pendente", "teste.jpg")
-            )
-
+            
 cur.execute("INSERT INTO posts (title, content, conclusao, departamentos, status, anexos) VALUES (?, ?, ?, ?, ?, ?)",
             ('teste', 'teste', "21/25/4241",
              "suporte", "concluido", "teste.jpg")
@@ -53,20 +48,8 @@ cur.execute("INSERT INTO posts (title, content, conclusao, departamentos, status
              "suporte", "concluido", "teste.jpg")
             )
 
-cur.execute("INSERT INTO contas (nome, email, senha, departamento) VALUES (?, ?, ?, ?)",
-            ('Renan', 'renan@renan.com', '1234', 'suporte')
-            )
-
-cur.execute("INSERT INTO contas (nome, email, senha, departamento) VALUES (?, ?, ?, ?)",
-            ('Patrick', 'patrick@patrick.com', '4321', 'suporte')
-            )
-
-cur.execute("INSERT INTO contas (nome, email, senha, departamento) VALUES (?, ?, ?, ?)",
-            ('Patrick', 'patrick@patrick.com.br', '4321', 'suporte')
-            )
-
 cur.execute("INSERT INTO setores (setor, vf) VALUES (?,?)",
-            ('suporte', 'v')
+            ('Suporte', 'v')
             )
 
 
